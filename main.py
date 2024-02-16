@@ -3,11 +3,14 @@ import random
 
 def get_user_choice():
     """Prompt the user to input their choice and validate it."""
-    user_choice = input("Enter your choice (rock, paper, or scissors): ").lower()
-    while user_choice not in ['rock', 'paper', 'scissors']:
-        print("Invalid choice. Please enter rock, paper, or scissors.")
-        user_choice = input("Enter your choice (rock, paper, or scissors): ").lower()
-    return user_choice
+    valid_choices = {'1': 'rock', '2': 'paper', '3': 'scissors'}
+
+    while True:
+        user_choice = input("Enter your choice (1 for rock, 2 for paper, 3 for scissors): ")
+        if user_choice in valid_choices:
+            return valid_choices[user_choice]
+        else:
+            print("Invalid choice. Please enter 1 for rock, 2 for paper, or 3 for scissors.")
 
 
 def get_computer_choice():
@@ -20,8 +23,8 @@ def determine_winner(user_choice, computer_choice):
     if user_choice == computer_choice:
         return "It's a tie!"
     elif (user_choice == 'rock' and computer_choice == 'scissors') or \
-         (user_choice == 'paper' and computer_choice == 'rock') or \
-         (user_choice == 'scissors' and computer_choice == 'paper'):
+            (user_choice == 'paper' and computer_choice == 'rock') or \
+            (user_choice == 'scissors' and computer_choice == 'paper'):
         return "You win!"
     else:
         return "Computer wins!"
