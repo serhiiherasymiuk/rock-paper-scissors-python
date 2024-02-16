@@ -27,15 +27,21 @@ def determine_winner(user_choice, computer_choice):
         return "Computer wins!"
 
 
+def display_choices(user_choice, computer_choice):
+    """Display the choices made by the user and the computer."""
+    print("You chose:", user_choice)
+    print("Computer chose:", computer_choice)
+
+
 def play_game():
     """Main function to play the Rock, Paper, Scissors game."""
     user_choice = get_user_choice()
     computer_choice = get_computer_choice()
-    print("You chose:", user_choice)
-    print("Computer chose:", computer_choice)
+    display_choices(user_choice, computer_choice)
     print(determine_winner(user_choice, computer_choice))
 
 
+# Run the game
 if __name__ == "__main__":
     play_game()
 
