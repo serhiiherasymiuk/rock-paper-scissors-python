@@ -2,6 +2,7 @@ import random
 
 
 def get_user_choice():
+    """Prompt the user to input their choice and validate it."""
     user_choice = input("Enter your choice (rock, paper, or scissors): ").lower()
     while user_choice not in ['rock', 'paper', 'scissors']:
         print("Invalid choice. Please enter rock, paper, or scissors.")
@@ -10,10 +11,12 @@ def get_user_choice():
 
 
 def get_computer_choice():
+    """Generate a random choice for the computer."""
     return random.choice(['rock', 'paper', 'scissors'])
 
 
 def determine_winner(user_choice, computer_choice):
+    """Determine the winner based on user and computer choices."""
     if user_choice == computer_choice:
         return "It's a tie!"
     elif (user_choice == 'rock' and computer_choice == 'scissors') or \
@@ -25,6 +28,7 @@ def determine_winner(user_choice, computer_choice):
 
 
 def play_game():
+    """Main function to play the Rock, Paper, Scissors game."""
     user_choice = get_user_choice()
     computer_choice = get_computer_choice()
     print("You chose:", user_choice)
@@ -34,4 +38,5 @@ def play_game():
 
 if __name__ == "__main__":
     play_game()
+
 
