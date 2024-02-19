@@ -1,7 +1,7 @@
 import random
 
 
-def get_user_choice():
+def get_user_choice() -> str:
     """Prompt the user to input their choice and validate it."""
     valid_choices = {'1': 'rock', '2': 'paper', '3': 'scissors'}
 
@@ -13,12 +13,12 @@ def get_user_choice():
             print("Invalid choice. Please enter 1 for rock, 2 for paper, or 3 for scissors.")
 
 
-def get_computer_choice():
+def get_computer_choice() -> str:
     """Generate a random choice for the computer."""
     return random.choice(['rock', 'paper', 'scissors'])
 
 
-def determine_winner(user_choice, computer_choice):
+def determine_winner(user_choice: str, computer_choice: str) -> str:
     """Determine the winner based on user and computer choices."""
     if user_choice == computer_choice:
         return "It's a tie!"
@@ -30,18 +30,23 @@ def determine_winner(user_choice, computer_choice):
         return "Computer wins!"
 
 
-def display_choices(user_choice, computer_choice):
+def display_choices(user_choice: str, computer_choice: str) -> None:
     """Display the choices made by the user and the computer."""
     print("You chose:", user_choice)
     print("Computer chose:", computer_choice)
 
 
-def play_game():
+def play_game() -> None:
     """Main function to play the Rock, Paper, Scissors game."""
-    user_choice = get_user_choice()
-    computer_choice = get_computer_choice()
-    display_choices(user_choice, computer_choice)
-    print(determine_winner(user_choice, computer_choice))
+    while True:
+        user_choice = get_user_choice()
+        computer_choice = get_computer_choice()
+        display_choices(user_choice, computer_choice)
+        print(determine_winner(user_choice, computer_choice))
+
+        play_again = input("Do you want to play again? (yes/no): ")
+        if play_again.lower() != 'yes':
+            break
 
 
 # Run the game
